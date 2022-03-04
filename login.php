@@ -24,8 +24,8 @@
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <!-- style css -->
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/stile-login.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Responsive-->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- fevicon -->
@@ -61,41 +61,42 @@
         <!-- banner section end -->
     </div>
         
-
-    <div class="contenedor__todo">
-        <div class="caja__trasera">
-            <div class="caja__trasera-login">
-                <h3>¿Ya tienes una cuenta?</h3>
-                <p>Inicia sesión para entrar en la página</p>
-                <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+    <main>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para que puedas iniciar sesión</p>
+                    <button id="btn__registrarse">Regístrarse</button>
+                </div>
             </div>
-            <div class="caja__trasera-register">
-                <h3>¿Aún no tienes una cuenta?</h3>
-                <p>Regístrate para que puedas iniciar sesión</p>
-                <button id="btn__registrarse">Regístrarse</button>
+
+            <!--Formulario de Login y registro-->
+            <div class="contenedor__login-register">
+                <!--Login-->
+                <form method="POST" action="php/login_u.php" name="signup-form" class="formulario__login">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" placeholder="Usuario" name = "username" required> 
+                    <input type="password" placeholder="Contraseña" name = "password" required>
+                    <button type="submit" name="login" value="login">Entrar</button>
+                </form>
+
+                <!--Register-->
+                <form method="POST" action="php/register.php" name="signin-form" class="formulario__register">
+                    <h2>Regístrarse</h2>
+                    <input type="text" placeholder="Usuario" name = "username" required>
+                    <input type="text" placeholder="Correo Electronico" name = "email" required>
+                    <input type="password" placeholder="Contraseña" name = "password" required>
+                    <button type="submit" name="register" value="register">Registrarse</button>
+                </form>
             </div>
         </div>
-
-        <!--Formulario de Login y registro-->
-        <div class="contenedor__login-register">
-            <!--Login-->
-            <form method="POST" action="php/login_u.php" name="signup-form" class="formulario__login">
-                <h2>Iniciar Sesión</h2>
-                <input type="text" placeholder="Usuario" name = "username" required> 
-                <input type="password" placeholder="Contraseña" name = "password" required>
-                <button type="submit" name="login" value="login">Entrar</button>
-            </form>
-
-            <!--Register-->
-            <form method="POST" action="php/register.php" name="signin-form" class="formulario__register">
-                <h2>Regístrarse</h2>
-                <input type="text" placeholder="Usuario" name = "username" required>
-                <input type="text" placeholder="Correo Electronico" name = "email" required>
-                <input type="password" placeholder="Contraseña" name = "password" required>
-                <button type="submit" name="register" value="register">Registrarse</button>
-            </form>
-        </div>
-    </div>
+    </main>
 
 
     <?php include 'footer.html'; ?>

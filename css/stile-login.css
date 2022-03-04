@@ -1,8 +1,11 @@
 main {
     width: 100%;
-    padding: 20px;
+    padding: 40px;
+    float: left;
     margin: auto;
-    margin-top: 100px;
+    padding-bottom: 50px;
+    background-image: url(../images/covid19-banner-plain_0.png);
+    background-size: auto 100%;
 }
 
 .contenedor__todo {
@@ -10,8 +13,6 @@ main {
     max-width: 800px;
     margin: auto;
     position: relative;
-    padding-top: 500px;
-    padding-bottom: 100px;
 }
 
 .caja__trasera {
@@ -72,7 +73,7 @@ main {
     width: 100%;
     max-width: 380px;
     position: relative;
-    top: -185px;
+    top: -242px;
     left: 10px;
     /*La transicion va despues del codigo JS*/
     transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
@@ -80,7 +81,7 @@ main {
 
 .contenedor__login-register form {
     width: 100%;
-    padding: 80px 20px;
+    padding: 90px 20px;
     background: white;
     position: absolute;
     border-radius: 20px;
