@@ -9,6 +9,11 @@
  <?php
 include_once '../php/config.php';
 
+$consulta = "SELECT username FROM users WHERE role='doctor'";
+$resultado = $connection->prepare($consulta);
+$resultado->execute();
+$data=$resultado->fetchAll(PDO::FETCH_ASSOC);
+
 $consulta1 = "SELECT * FROM files";
 $resultado1 = $connection->prepare($consulta1);
 $resultado1->execute();
@@ -37,7 +42,7 @@ $data1=$resultado1->fetchAll(PDO::FETCH_ASSOC);
                                 <th scope="col">Email</th>  
                                 <th scope="col">Enlace meet</th>
                                 <th scope="col">Saturacion oxigeno</th>
-                                <th scope="col">Doctor</th>
+                                <th scope="col">Doctor(a)</th>
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Hora</th>
                                 <th scope="col">Acciones</th>
@@ -98,15 +103,25 @@ $data1=$resultado1->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="form-group">
                 <label for="" class="col-form-label">Saturacion:</label>
-                <input type="text" class="form-control" id="saturacion" required>
+                <input type="number" class="form-control" id="saturacion" required min="90" max="100">
                 </div>
                 <div class="form-group">
-                <label for="" class="col-form-label">Doctor:</label>
-                <input type="text" class="form-control" id="doctor" required>
+                    <label for="" class="col-form-label">Doctor(a):</label>
+                    <select class="form-control" id="doctor" required>
+                        <!-- <option value="" selected>Seleccione un doctor</option> -->
+                    <?php                            
+                        foreach($data as $dat) {                                                        
+                        ?>
+                        <option value="<?php echo $dat['username'] ?>">Doctor(a): <?php echo $dat['username'] ?></option>
+                        <?php
+                        }
+                    ?>  
+                    <!-- <input type="text" class="form-control" id="doctor" required> -->
+                    </select>
                 </div>
                 <div class="form-group">
                 <label for="" class="col-form-label">Fecha:</label>
-                <input type="text" class="form-control" id="fecha" required>
+                <input type="date" class="form-control" id="fecha" required>
                 </div>
                 <div class="form-group">
                 <label for="" class="col-form-label">Hora:</label>

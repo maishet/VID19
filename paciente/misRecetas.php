@@ -3,7 +3,7 @@
 session_start();
  
 if(!isset($_SESSION['user_id'])){
-    header('Location: ../index.html');
+    header('Location: ../index.php');
     exit;
 } else {
     // Show users the page!
@@ -35,31 +35,8 @@ if(!isset($_SESSION['user_id'])){
 
     <body>
     <!-- Menu de Navegacion -->
-    <header id="header">
-    <nav class="menu">
-     <div class="logo-box">
-       <h1><a href="index.php">Vid19-<?php echo $role?></a></h1>
-       <span class="btn-menu"><em class="fas fa-bars"></em></span> <!-- Icono de barra de menu -->
-     </div>
-      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 <!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">  -->
-                <img class="img-profile rounded-circle" src= <?php echo $photo?> height="50" alt="img-profile rounded-circle"> 
-     </a> 
-     
-     <div class="list-container">
-        <ul class="lists">
-            <li><a href="index.php" class="activo"><?php echo $user?></a></li>
-            <li><a href="recomendaciones.php">Recomendaciones</a></li>
-            <li><a href="locales.php">Buscar centros de oxígeno</a></li>
-            <li><a href="misCitas.php">Mis citas</a></li>
-            <li><a href="misRecetas.php">Mis recetas</a></li>
-            <li><a href="../php/cerrar_login_usuario.php">Cerrar sesion</a></li>
-        </ul>
-     </div>
-    </nav>
-    <!-- Imagen Header -->
 
-    </header>
+    <?php include 'header.php'; ?>
 
     <?php
         include('../php/config.php');
@@ -104,7 +81,7 @@ if(!isset($_SESSION['user_id'])){
                                     <td><?php echo $val['meet'] ?></td>
                                     <td>
                                         <button onclick="openModelPDF('<?php echo $val['url'] ?>')" class="btn btn-primary" type="button">Ver Archivo Modal</button>
-                                        <a class="btn btn-primary" target="_black" href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/Calidad/doctor/' . $val['url']; ?>" >Ver Archivo pagina</a>
+                                        <a class="btn btn-primary" target="_black" href="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/VID19/doctor/' . $val['url']; ?>" >Ver Archivo pagina</a>
                                     </td>
                                 </tr>
                             <?php } 
@@ -143,7 +120,7 @@ if(!isset($_SESSION['user_id'])){
         <script>
                             function openModelPDF(url) {
                                 $('#modalPdf').modal('show');
-                                $('#iframePDF').attr('src','<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/Calidad/doctor/'; ?>'+url);
+                                $('#iframePDF').attr('src','<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/VID19/doctor/'; ?>'+url);
                             }
         </script>
     <!--  -->
@@ -153,7 +130,6 @@ if(!isset($_SESSION['user_id'])){
         </div>
     </main>
 
-            <script src="../js/script.js"></script>
-            <script src="../js/app.js"></script>
+    <?php include 'botwsp.html'; ?>
     </body>
 </html>

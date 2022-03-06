@@ -2,7 +2,7 @@
 session_start();
  
 if(!isset($_SESSION['user_id'])){
-    header('Location: ../index.html');
+    header('Location: ../index.php');
     exit;
 } else {
     // Show users the page!
@@ -33,31 +33,9 @@ if(!isset($_SESSION['user_id'])){
 		<link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-	<header id="header">
-		<nav class="menu">
-		<div class="logo-box">
-		<h1><a href="index.php">Vid19-<?php echo $role?></a></h1>
-		<span class="btn-menu"><em class="fas fa-bars"></em></span> <!-- Icono de barra de menu -->
-		</div>
-		<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<!-- <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">  -->
-					<img class="img-profile rounded-circle" src= <?php echo $photo?> height="50" alt="img-profile rounded-circle"> 
-		</a> 
-		
-		<div class="list-container">
-			<ul class="lists">
-				<li><a href="index.php" class="activo"><?php echo $user?></a></li>
-				<li><a href="recomendaciones.php">Recomendaciones</a></li>
-				<li><a href="locales.php">Buscar centros de oxígeno</a></li>
-				<li><a href="misCitas.php">Mis citas</a></li>
-				<li><a href="misRecetas.php">Mis recetas</a></li>
-				<li><a href="../php/cerrar_login_usuario.php">Cerrar sesion</a></li>
-			</ul>
-		</div>
-		</nav>
-		<!-- Imagen Header -->
 
-    </header>
+	<?php include 'header.php'; ?>
+	
 	<main>
 		<h1 class="titulo">Recomendaciones</h1>
 		<div class="categorias" id="categorias">
@@ -137,5 +115,7 @@ if(!isset($_SESSION['user_id'])){
 
 	<script src="js/categorias.js"></script>
 	<script src="js/preguntasFrecuentes.js"></script>
+
+	<?php include 'botwsp.html'; ?>
 </body>
 </html>

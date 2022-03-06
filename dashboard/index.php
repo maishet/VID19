@@ -86,11 +86,11 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                 </div>                
                 <div class="form-group">
                 <label for="" class="col-form-label">Rol:</label>
-                <select id="role" required>
-                <option value="paciente">Paciente</option>
-                <option value="doctor">Doctor</option>
-                <option value="admin">Administrador</option>
-            </select>
+                <select class="form-control" id="role" required>
+                    <option value="paciente">Paciente</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="admin">Administrador</option>
+                </select>
                 </div>            
             </div>
             <div class="modal-footer">

@@ -8,6 +8,10 @@
     
  <?php
 include_once '../php/config.php';
+$consulta = "SELECT username FROM users WHERE role='paciente'";
+$resultado = $connection->prepare($consulta);
+$resultado->execute();
+$data=$resultado->fetchAll(PDO::FETCH_ASSOC);
 
 $consulta2 = "SELECT * FROM receta";
 $resultado2 = $connection->prepare($consulta2);
@@ -71,9 +75,23 @@ $data2=$resultado2->fetchAll(PDO::FETCH_ASSOC);
         <form id="formRecetas">    
             <div class="modal-body">
                 <div class="form-group">
+                    <label for="" class="col-form-label">Paciente:</label>
+                    <select class="form-control" id="title" required>
+                        <!-- <option value="" selected>Seleccione un doctor</option> -->
+                    <?php                            
+                        foreach($data as $dat) {                                                        
+                        ?>
+                        <option value="<?php echo $dat['username'] ?>"><?php echo $dat['username'] ?></option>
+                        <?php
+                        }
+                    ?>  
+                    <!-- <input type="text" class="form-control" id="doctor" required> -->
+                    </select>
+                </div>
+                <!-- <div class="form-group">
                 <label for="" class="col-form-label">Paciente:</label>
                 <input type="text" class="form-control" id="title" required>
-                </div>
+                </div> -->
                 <div class="form-group">
                 <label for="" class="col-form-label">Enlace meet:</label>
                 <input type="text" class="form-control" id="meet" required>
