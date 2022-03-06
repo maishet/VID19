@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <!-- owl stylesheets -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <!-- <link rel="stylesheet" href="css/owl.theme.default.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 </head>
 <body>
@@ -76,22 +76,22 @@
                 </div>
             </div>
 
-            <!--Formulario de Login y registro-->
+            <!--Formulario de Login y registro action="php/login_u.php" -->
             <div class="contenedor__login-register">
                 <!--Login-->
-                <form method="POST" action="php/login_u.php" name="signup-form" class="formulario__login">
+                <form id="iniciosesionlg" method="POST" name="signup-form" class="formulario__login">
                     <h2>Iniciar Sesión</h2>
-                    <input type="text" placeholder="Usuario" name = "username" required> 
-                    <input type="password" placeholder="Contraseña" name = "password" required>
+                    <input id="userinicio" type="text" placeholder="Usuario" name = "username">
+                    <input id="passinicio" type="password" placeholder="Contraseña" name = "password">
                     <button type="submit" name="login" value="login">Entrar</button>
                 </form>
 
                 <!--Register-->
-                <form method="POST" action="php/register.php" name="signin-form" class="formulario__register">
-                    <h2>Regístrarse</h2>
-                    <input type="text" placeholder="Usuario" name = "username" required>
-                    <input type="text" placeholder="Correo Electronico" name = "email" required>
-                    <input type="password" placeholder="Contraseña" name = "password" required>
+                <form id="registrolg" method="POST" action="php/register.php" name="signin-form" class="formulario__register">
+                    <h2>Regístrate</h2>
+                    <input id="userregistro" type="text" placeholder="Usuario" name = "username" required>
+                    <input id="emailregistro" type="text" placeholder="Correo Electronico" name = "email" required>
+                    <input id="passregistro" type="password" placeholder="Contraseña" name = "password" required>
                     <button type="submit" name="register" value="register">Registrarse</button>
                 </form>
             </div>
@@ -101,5 +101,6 @@
 
     <?php include 'footer.html'; ?>
     <script src="js/script.js"></script>
+    <script src="js/loginajax.js"></script>
 </body>
 </html>
