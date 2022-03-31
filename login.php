@@ -89,9 +89,9 @@
                 <!--Register-->
                 <form id="registrolg" method="POST" action="php/register.php" name="signin-form" class="formulario__register">
                     <h2>Regístrate</h2>
-                    <input id="userregistro" type="text" placeholder="Usuario" name = "username" required>
-                    <input id="emailregistro" type="text" placeholder="Correo Electronico" name = "email" required>
-                    <input id="passregistro" type="password" placeholder="Contraseña" name = "password" required>
+                    <input id="userregistro" type="text" placeholder="Usuario" name = "username" required minlength="5" maxlength="20">
+                    <input id="emailregistro" type="email" placeholder="Correo Electronico" name = "email" required maxlength="50">
+                    <input id="passregistro" type="password" placeholder="Contraseña" name = "password" required minlength="5" maxlength="30">
                     <button type="submit" name="register" value="register">Registrarse</button>
                 </form>
             </div>
